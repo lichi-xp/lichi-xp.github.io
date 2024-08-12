@@ -1,0 +1,58 @@
+* {
+  color: hotpink;
+}
+/* this is a universal selector */
+
+#my-heading {
+  color: red;
+}
+
+/* h1 {
+  color: limegreen;
+} */
+
+/* p,
+h3 {
+  color: yellow;
+} */
+
+p {
+  color: magenta;
+  border: 1px solid red;
+  padding: 30px;
+  /* width: 200px; */
+}
+
+.my-class {
+  color: blueviolet;
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: bisque;
+}
+
+p > strong {
+  color: black;
+}
+
+article {
+  text-align: center;
+  border: 1px dashed lime;
+  padding: 10px;
+  background-color: aquamarine;
+}
+
+/* .padding-style {
+  padding: 10px;
+  border: 1px solid red;
+} */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
