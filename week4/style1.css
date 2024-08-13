@@ -1,0 +1,46 @@
+body {
+  background-color: #1a120b;
+  display: flex;
+  text-align: center;
+  margin: auto;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pinyon Script";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+.outer {
+  border: 2px dashed rgb(148, 135, 135);
+  width: 400px;
+  height: 200px;
+  color: #3c2a21;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 10px;
+  /* flex-direction: column; */
+}
+
+p {
+  padding: 10px;
+}
+
+.limebox {
+  background-color: limegreen;
+  flex: 1;
+}
+
+.coralbox {
+  background-color: coral;
+  flex: 1;
+}
+
+.plumbox {
+  background-color: plum;
+  flex: 1;
+}
