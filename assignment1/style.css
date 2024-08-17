@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 32px;
+  font-style: medium;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 20px;
+  font-style: normal;
+}
+
+.script {
+  font-family: Ballet;
+  font-weight: 96px;
+}
