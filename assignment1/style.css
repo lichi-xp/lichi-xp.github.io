@@ -1,3 +1,9 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,12 +21,6 @@ h2 {
   font-family: "Clash Display", sans-serif;
   font-weight: 32px;
   font-style: medium;
-}
-
-p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 20px;
-  font-style: normal;
 }
 
 .script {
