@@ -517,6 +517,21 @@ h2 {
   margin-bottom: 60px;
 }
 
+/* Feel & Satisfying */
+.over-time-wrapper {
+  background-color: #708d93;
+  color: white;
+  width: 100%; /* Ensure the wrapper expands to the full width of the screen */
+  margin: 0px; /* Reset any default margin */
+  padding: 5px 0; /* Padding top and bottom */
+}
+
+.feel-satisfying h3 {
+  text-align: right; /* Aligns the h3 element to the right */
+  margin-right: 20px; /* Add some margin to the right for spacing */
+  margin-bottom: -40px;
+}
+
 p {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
