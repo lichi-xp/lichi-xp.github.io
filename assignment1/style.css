@@ -6,6 +6,13 @@ body {
   color: #333;
 }
 
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section  */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -28,7 +35,7 @@ header {
 }
 
 .project-title {
-  font-size: 18px;
+  font-size: 20px;
   text-transform: none;
   margin: 20px 40px;
 }
@@ -38,7 +45,7 @@ h2 {
   font-size: 32px;
   font-style: medium;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .portfolio-title {
@@ -56,15 +63,15 @@ h2 {
 }
 
 .student-info {
-  font-size: 18px;
-  /* margin-top: 0px; */
+  font-size: 20px;
 }
 
+/* Image Section */
 .image-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
   gap: 11px; /* Sets the desired margin between videos */
-  padding: 0 100px 100px; /* Adds padding to the left, right, bottom of the container */
+  padding: 0 100px 100px; /* Adds padding to the left and right of the container */
   box-sizing: border-box; /* Ensures padding is included in the element's total width */
   width: 100%;
   margin: -20px auto 0 auto;
@@ -74,10 +81,12 @@ h2 {
   width: 100%; /* Image will take up the full width of its grid cell */
   object-fit: cover; /* Ensures the image covers the area without distortion */
   height: auto; /* Maintains the image's aspect ratio */
+  border-radius: 8px;
 }
 
+/* Table of Content */
 .table-of-content-wrapper {
-  background-color: #708d93; /* Set the background color for the full width */
+  background-color: #708d93;
   width: 100%; /* Ensure the wrapper expands to the full width of the screen */
   margin: 0px; /* Reset any default margin */
   padding: 30px 0; /* Padding top and bottom */
@@ -96,49 +105,320 @@ h2 {
   text-align: left; /* Align title to the left */
 }
 
-.table-title .script {
-  font-family: "Ballet", cursive;
-  font-size: 72px;
-  vertical-align: middle;
-}
-
 .content-list {
   list-style: none;
-  padding: 30px 10px 0;
+  padding: 3px 10px 50px;
   margin: 0;
   font-size: 36px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 10px; /* Reduce gap to match the layout in the second image */
 }
 
 .content-list li {
-  display: grid;
-  grid-template-columns: 1fr auto; /* Two columns: text and question */
-  align-items: baseline; /* Align items to the baseline for better text alignment */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; /* Ensures alignment to baseline for better text alignment */
   border-bottom: 1px solid white;
-  padding-bottom: 5px;
+  padding-bottom: 10px; /* Increase padding to match the spacing */
   font-weight: 380;
 }
 
 .content-list li .question {
-  justify-self: start; /* Align the question text to the start of the grid cell */
+  font-weight: 380;
   text-align: left;
-  margin-left: 10px; /* Adjust as needed to fine-tune the alignment */
+  /* margin-left: auto; */
 }
 
-.header {
+/* Initial Section */
+#Q1 {
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* Three rows: the first two auto-sized, the last takes up remaining space */
+  grid-template-columns: 1fr; /* Single column layout */
+  gap: 20px; /* Gap between rows */
+  /* padding: px; Padding around the grid */
+}
+
+#Q1 h3 {
+  grid-row: 1; /* Place in the first row */
+}
+
+#Q1 h4 {
+  grid-row: 2; /* Place in the second row */
+}
+
+#Q1 .text-image-container {
+  grid-row: 3; /* Place in the third row */
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* Two rows for the text-image-container */
+  grid-template-columns: repeat(3, 1fr); /* Three columns, equally spaced */
+  gap: 60px; /* Gap between grid items */
+}
+
+.text-block {
+  grid-column: span 1; /* Each text block takes up one column */
+  /* Add additional styling if needed */
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.image-block {
+  grid-column: span 1; /* Each image block takes up one column */
+  /* Add additional styling if needed */
+}
+
+.text-image-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); /* Two rows, each taking up equal space */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Three columns, each taking up equal space */
+  gap: 20px; /* Gap between grid items */
+}
+
+/* Styling for specific grid items */
+#e1 {
+  grid-column: 1; /* 1st column */
+  grid-row: 1; /* 1st row */
+}
+
+#e2 {
+  grid-column: 1; /* 1st column */
+  grid-row: 2; /* 2nd row */
+}
+
+#e3 {
+  grid-column: 2; /* 2nd column */
+  grid-row: 1; /* 1st row */
+}
+
+#e4 {
+  grid-column: 3; /* 3rd column */
+  grid-row: 1; /* 1st row */
+}
+
+#e5 {
+  grid-column: 2 / 4; /* Span from 2nd to 3rd column */
+  grid-row: 2; /* 2nd row */
+}
+
+/* 2-minute Section */
+.first-interaction-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  padding: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.left-column {
+  background-color: #708d93; /* Match the left background color */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-column h4 {
+  font-size: 24px;
+  font-weight: 380;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.action-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 20px; /* Aligns with the vertical line */
+  position: relative;
+}
+
+.action-list li {
+  margin-bottom: 20px;
+
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  position: relative;
+  padding-left: 30px; /* Space for bullet points */
+}
+
+.action-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #666; /* Bullet point color */
+  border-radius: 50%;
+}
+
+.action-list:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ccc; /* Vertical line color */
+}
+
+/* Most engaging & action */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; /* Adjust the gap between the two columns */
+  padding: 20px; /* Padding around the layout */
+}
+
+.column {
+  /* background-color: #f8f8f8; */
+  padding: 20px;
+}
+
+.column h4 {
+  margin-top: 0;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.column p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* What Primary Goal */
+#Q5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Adjust column width ratio as needed */
+  gap: 40px; /* Space between columns */
+  align-items: center; /* Vertically align content in the center */
+}
+
+#Q5 h3 {
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#Q5 h4 {
+  grid-column: 2;
+}
+
+.what-primary-goal-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 60px;
+  line-height: 1.6;
+  align-items: start;
+  /* padding: 20px;  */
+}
+
+#d1 {
+  grid-column: 1;
+}
+
+#d2 {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}
+
+#d3 {
+  grid-column: 3;
+}
+
+/* How Primary Goal */
+#Q6 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr; /* Adjust column width ratio as needed */
+  grid-template-rows: 1fr auto 1fr 1fr;
+  gap: 80px; /* Space between columns */
+  align-items: start; /* Vertically align content in the center */
+  line-height: 1.6;
+}
+
+#a1 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#Q6 h4 {
+  grid-column: 2/4;
+  grid-row: 1;
+  border: 2px solid red;
+}
+
+#a2 {
+  grid-column: 2/3;
+  grid-row: 2;
+}
+
+#a3 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#a4 {
+  grid-column: 2/4;
+  grid-row: 3/5;
+}
+
+/* Over Time */
+.over-time-wrapper {
+  background-color: #708d93;
+  color: white;
+  width: 100%; /* Ensure the wrapper expands to the full width of the screen */
+  margin: 0px; /* Reset any default margin */
+  padding: 30px 0; /* Padding top and bottom */
+}
+
+#Q7 .answer-Q7 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 60px;
+  height: 600px; /* Adjust height as needed */
+  margin: 20px;
+  /* border: 2px solid; */
+}
+
+#k1 {
+  grid-column: 1;
+}
+
+#k2 {
+  grid-column: 2;
+}
+
+#k3 {
+  grid-column: 3;
+}
+
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 p {
   font-family: "Montserrat", sans-serif;
-  /* font-size: 20px; */
+  font-size: 18px;
 }
 
 h3 {
@@ -150,11 +430,17 @@ h3 {
 
 h4 {
   font-family: "Clash Display", sans-serif;
-  font-weight: medium;
-  font-size: 28px;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .script {
   font-family: "Ballet", cursive;
   font-size: 64px;
+}
+
+.section-number {
+  font-size: 24px;
+  margin-right: 10px;
+  font-weight: 500;
 }
