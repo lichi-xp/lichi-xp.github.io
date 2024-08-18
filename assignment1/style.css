@@ -1,3 +1,124 @@
+body {
+  font-family: "Clash Display", sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-size: 18px;
+  text-transform: none;
+}
+
+.course-code {
+  font-size: 18px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.course-name {
+  font-size: 18px;
+  text-transform: none;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.portfolio-title {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+/* .portfolio-title .script {
+  font-family: "Ballet", cursive;
+  font-size: 42px;
+} */
+
+.student-info {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.content .image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.content .image-section img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+}
+
+.table-of-content {
+  background-color: #8aa5b1;
+  color: white;
+  padding: 40px;
+}
+
+.table-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* .table-title .script {
+  font-family: "Ballet", cursive;
+  font-size: 72px;
+  vertical-align: middle;
+} */
+
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 5px;
+  font-weight: 300;
+}
+
+.content-list li .question {
+  font-weight: 400;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -9,26 +130,22 @@
 
 p {
   font-family: "Montserrat", sans-serif;
+  /* font-size: 20px; */
 }
 
 h2 {
   font-family: "Clash Display", sans-serif;
-  font-weight: 32px;
+  font-weight: 96px;
   font-style: medium;
 }
 
-.script {
-  font-family: Ballet;
-  font-weight: 96px;
+h4 {
+  font-family: "Clash Display", sans-serif;
+  font-weight: medium;
+  font-size: 32px;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #8aa5b1;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+.script {
+  font-family: "Ballet", cursive;
+  font-size: 42px;
 }
