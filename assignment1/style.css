@@ -19,104 +19,109 @@ header {
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  height: 100%;
+  position: relative;
+  flex-grow: 1;
 }
 
 .project-title {
   font-size: 18px;
   text-transform: none;
+  margin: 20px 40px;
 }
 
-.course-code {
-  font-size: 18px;
+h2 {
+  font-family: "Clash Display", sans-serif;
+  font-size: 32px;
+  font-style: medium;
   text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-}
-
-.course-name {
-  font-size: 18px;
-  text-transform: none;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
+  margin-top: 20px;
 }
 
 .portfolio-title {
-  font-size: 36px;
+  font-size: 96px;
   line-height: 1.2;
+  display: inline-block;
 }
 
-/* .portfolio-title .script {
+.project-title-script {
   font-family: "Ballet", cursive;
-  font-size: 42px;
-} */
+  font-size: 96px;
+  line-height: 1.2;
+  display: inline-block;
+  vertical-align: baseline; /* Ensure the script font aligns well with the rest of the text */
+}
 
 .student-info {
   font-size: 18px;
-  margin-top: 10px;
+  /* margin-top: 0px; */
 }
 
-.content .image-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.content .image-section img {
+.image-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
+  gap: 11px; /* Sets the desired margin between videos */
+  padding: 0 100px 100px; /* Adds padding to the left, right, bottom of the container */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width */
   width: 100%;
-  max-width: 800px;
-  border-radius: 8px;
+  margin: -20px auto 0 auto;
+}
+
+.image-section img {
+  width: 100%; /* Image will take up the full width of its grid cell */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  height: auto; /* Maintains the image's aspect ratio */
+}
+
+.table-of-content-wrapper {
+  background-color: #8aa5b1; /* Set the background color for the full width */
+  width: 100%; /* Ensure the wrapper expands to the full width of the screen */
+  margin: 0; /* Reset any default margin */
+  padding: 40px 0; /* Padding top and bottom */
 }
 
 .table-of-content {
-  background-color: #8aa5b1;
   color: white;
-  padding: 40px;
+  padding: 0 40px;
+  max-width: 1000px; /* Restrict the width of the content */
+  margin: 0 auto; /* Center the table of content section */
 }
 
 .table-title {
-  font-size: 48px;
+  font-size: 96px;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left; /* Align title to the left */
 }
 
-/* .table-title .script {
+.table-title .script {
   font-family: "Ballet", cursive;
   font-size: 72px;
   vertical-align: middle;
-} */
+}
 
 .content-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 24px;
+  font-size: 36px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px; /* Reduce gap to match the layout in the second image */
 }
 
 .content-list li {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  padding-bottom: 5px;
-  font-weight: 300;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px; /* Increase padding to match the spacing */
+  font-weight: 380;
 }
 
 .content-list li .question {
-  font-weight: 400;
+  font-weight: 380;
 }
 
 .header {
@@ -133,19 +138,19 @@ p {
   /* font-size: 20px; */
 }
 
-h2 {
+h3 {
   font-family: "Clash Display", sans-serif;
-  font-weight: 96px;
+  font-size: 48px;
   font-style: medium;
 }
 
 h4 {
   font-family: "Clash Display", sans-serif;
   font-weight: medium;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .script {
   font-family: "Ballet", cursive;
-  font-size: 42px;
+  font-size: 48px;
 }
