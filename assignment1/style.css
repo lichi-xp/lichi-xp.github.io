@@ -383,16 +383,16 @@ h2 {
   color: white;
   width: 100%; /* Ensure the wrapper expands to the full width of the screen */
   margin: 0px; /* Reset any default margin */
-  padding: 30px 0; /* Padding top and bottom */
+  padding: 15px 0; /* Padding top and bottom */
 }
 
 #Q7 .answer-Q7 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 60px;
-  height: 600px; /* Adjust height as needed */
-  margin: 20px;
-  /* border: 2px solid; */
+  max-height: 600px; /* Adjust height as needed */
+  margin: 40px;
+  line-height: 1.6;
 }
 
 #k1 {
@@ -419,6 +419,7 @@ h2 {
 p {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
+  line-height: 1.6;
 }
 
 h3 {
