@@ -532,6 +532,17 @@ h2 {
   margin-bottom: -40px;
 }
 
+/* Frustrating */
+.content-container {
+  margin-top: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.satisfying-interaction {
+  margin-top: 40px;
+  text-align: center;
+}
+
 p {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
