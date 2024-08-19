@@ -70,9 +70,8 @@ h2 {
 /* Image Section */
 .image-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
-  gap: 11px; /* Sets the desired margin between videos */
-  /* padding: 0 100px 100px; Adds padding to the left and right of the container */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
   box-sizing: border-box; /* Ensures padding is included in the element's total width */
   width: 100%;
   margin: 0 auto 60px;
@@ -88,21 +87,21 @@ h2 {
 .table-of-content-wrapper {
   background-color: #708d93;
   width: 100%; /* Ensure the wrapper expands to the full width of the screen */
-  margin: 0px; /* Reset any default margin */
+  margin: 0px;
   padding: 30px 0; /* Padding top and bottom */
 }
 
 .table-of-content {
   color: white;
   padding: 0 10px;
-  max-width: 1000px; /* Restrict the width of the content */
+  max-width: 1000px;
   margin: 0 auto; /* Center the table of content section */
 }
 
 .table-title {
   font-size: 96px;
   margin-bottom: 20px;
-  text-align: left; /* Align title to the left */
+  text-align: left;
 }
 
 .content-list {
@@ -112,7 +111,7 @@ h2 {
   font-size: 36px;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Reduce gap to match the layout in the second image */
+  gap: 10px;
 }
 
 .content-list li {
@@ -127,7 +126,6 @@ h2 {
 .content-list li .question {
   font-weight: 380;
   text-align: left;
-  /* margin-left: auto; */
 }
 
 /* Initial Section */
@@ -201,7 +199,7 @@ h2 {
 }
 
 .left-column {
-  background-color: #708d93; /* Match the left background color */
+  background-color: #708d93;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -264,7 +262,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 20px;
-  gap: 60px; /* Adjust the gap between the two columns */
+  gap: 60px;
   padding: 20px; /* Padding around the layout */
 }
 
@@ -289,9 +287,9 @@ h2 {
 #Q5 {
   display: grid;
   margin-top: -30px;
-  grid-template-columns: 1fr 1fr; /* Adjust column width ratio as needed */
-  gap: 40px; /* Space between columns */
-  align-items: center; /* Vertically align content in the center */
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
 #Q5 h3 {
@@ -328,7 +326,7 @@ h2 {
 #d2 h3 {
   margin: -20px; /* Ensure no extra margin on the "GOAL" heading */
   padding-top: 0; /* Ensure padding doesn't push it down */
-  align-items: flex-start; /* Align the "GOAL" text at the top */
+  align-items: flex-start;
 }
 
 #d3 {
@@ -338,10 +336,10 @@ h2 {
 /* How Primary Goal */
 #Q6 {
   display: grid;
-  grid-template-columns: 1fr 1.1fr 1.5fr; /* Adjust column width ratio as needed */
+  grid-template-columns: 1fr 1.1fr 1.5fr;
   grid-template-rows: auto 1fr 1fr 1fr;
-  gap: 40px; /* Space between columns */
-  align-items: start; /* Vertically align content in the center */
+  gap: 40px;
+  align-items: start;
   line-height: 1.6;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -395,7 +393,7 @@ h2 {
 .over-time-wrapper {
   background-color: #708d93;
   color: white;
-  width: 100%; /* Ensure the wrapper expands to the full width of the screen */
+  width: 100%;
   margin: 0px; /* Reset any default margin */
   padding: 5px 0; /* Padding top and bottom */
 }
@@ -404,7 +402,6 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 60px;
-  max-height: 600px; /* Adjust height as needed */
   margin: 40px;
   line-height: 1.6;
 }
@@ -506,10 +503,10 @@ h2 {
 /* Should Act */
 #Q10 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Left column smaller for question, right column larger for answer */
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 40px; /* Space between columns */
-  align-items: start; /* Align content at the start vertically */
+  gap: 40px;
+  align-items: start;
   padding: 0px;
   /* max-width: 1000px; */
   margin: 0 auto;
@@ -532,31 +529,29 @@ h2 {
 .over-time-wrapper {
   background-color: #708d93;
   color: white;
-  width: 100%; /* Ensure the wrapper expands to the full width of the screen */
+  width: 100%;
   margin: 0px; /* Reset any default margin */
-  padding: 5px 0; /* Padding top and bottom */
+  padding: 5px 0;
 }
 
 .feel-satisfying h3 {
-  text-align: right; /* Aligns the h3 element to the right */
+  text-align: right;
   margin-right: 20px; /* Add some margin to the right for spacing */
   margin-bottom: -40px;
 }
 
-/* General Styles */
 .frustrating-interaction h4 {
   text-align: center;
   max-width: 800px;
   margin: 60px auto;
   /* margin-bottom: 40px; */
-  /* font-size: 24px; */
 }
 
 /* Centered Grid */
 .content-container {
   display: flex;
   justify-content: center; /* Center the grid container */
-  width: 100%; /* Ensure the container takes full width */
+  width: 100%;
 }
 
 /* Four Column Grid */
