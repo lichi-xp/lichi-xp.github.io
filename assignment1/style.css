@@ -532,16 +532,41 @@ h2 {
   margin-bottom: -40px;
 }
 
-/* Frustrating */
-.content-container {
-  margin-top: 40px;
-  font-family: "Montserrat", sans-serif;
+/* General Styles */
+.frustrating-interaction h4 {
+  text-align: center;
+  max-width: 800px;
+  margin: 60px auto;
+  /* margin-bottom: 40px; */
+  /* font-size: 24px; */
 }
 
-.satisfying-interaction {
-  margin-top: 40px;
-  text-align: center;
+/* Centered Grid */
+.content-container {
+  display: flex;
+  justify-content: center; /* Center the grid container */
+  width: 100%; /* Ensure the container takes full width */
 }
+
+/* Four Column Grid */
+.grid-4x2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.grid-4x2 img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* .grid-4x2 p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 0;
+} */
 
 p {
   font-family: "Montserrat", sans-serif;
