@@ -31,10 +31,10 @@
 // function randomInteger (min, max) {
 //     return Math.floor(min + ((max-min) * Math.random()))
 //   }
-  
+
 //   function pick (inputArray) {
 //     return inputArray[randomInteger(0,inputArray.length)]
-// }  
+// }
 
 // const names = ["Sarah", "Peter", "Alice", "Jenny", "Rohit", "Frank"];
 // console.log(names.length);
@@ -43,23 +43,23 @@
 // }
 
 let shoppingCart = [
-    {name: "T-shirt", price: 20},
-    {name: "Jeans", price: 50},
-    {name: "Sneakers", price: 80},
-    {name: "Backpack", price: 30},
+  { name: "T-shirt", price: 20 },
+  { name: "Jeans", price: 50 },
+  { name: "Sneakers", price: 80 },
+  { name: "Backpack", price: 30 },
 ];
 
 let total =
-    shoppingCart[0].price +
-    shoppingCart[1].price +
-    shoppingCart[2].price +
-    shoppingCart[3].price;
+  shoppingCart[0].price +
+  shoppingCart[1].price +
+  shoppingCart[2].price +
+  shoppingCart[3].price;
 
 console.log(total);
-let sum=0;
-for (let i = 0, i < 4, i++) {
-    sum = sum +shoppingCart[i].price;
-    console.log("intermediate sum", sum)
-}
+let sum = 0;
+// for (let i = 0, i < 4, i++) {
+//     sum = sum +shoppingCart[i].price;
+//     console.log("intermediate sum", sum)
+// }
 
-console.log(sum)
+console.log(sum);
