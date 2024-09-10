@@ -44,3 +44,11 @@ input {
   font-size: 1.4rem;
   color: crimson;
 }
+
+.red-heading {
+  color: red;
+}
+
+.blue-heading {
+  color: blue;
+}

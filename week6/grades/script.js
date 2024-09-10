@@ -26,3 +26,23 @@ function giveReport(score) {
     report.textContent = "you got DI";
   }
 }
+
+const ques1 = document.querySelector("#question1");
+console.log(ques1.textContent);
+ques1.textContent = "What is your all score?";
+ques1.classList.add("red-heading");
+
+const ques2 = document.querySelector("#question2");
+console.log(ques2.textContent);
+ques2.textContent = "What is your asm2 score?";
+
+// const allPara = document.querySelectorAll("p");
+// console.log(allPara);
+
+const heading = document.querySelector("h1");
+console.log(heading.textContent);
+
+heading.textContent = "new heading";
+heading.classList.add("red-heading");
+heading.classList.add("blue-heading");
+heading.classList.remove("blue-heading");
