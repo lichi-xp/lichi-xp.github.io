@@ -52,3 +52,11 @@ input {
 .blue-heading {
   color: blue;
 }
+
+.round {
+  border-radius: 50%;
+}
+
+img {
+  border: 1px solid coral;
+}
