@@ -3,6 +3,7 @@
 body {
   background-color: #1a120b;
   display: flex;
+  flex-direction: column;
   text-align: center;
   margin: auto;
   max-width: 1000px;

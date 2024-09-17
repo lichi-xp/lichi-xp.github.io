@@ -67,8 +67,8 @@ function pickMe() {
   boxContainer.classList.remove("drop");
 }
 
-addButton.addEventListener("mouseenter", colorMe);
-addButton.addEventListener("mouseleave", decolorMe);
-function colorMe() {
-  boxContainer.classList.remove("drop");
-}
+// addButton.addEventListener("mouseenter", colorMe);
+// addButton.addEventListener("mouseleave", decolorMe);
+// function colorMe() {
+//   boxContainer.classList.add("drop");
+// }
