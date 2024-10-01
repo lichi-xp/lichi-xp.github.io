@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 /* Navigation styling */
@@ -84,21 +85,99 @@ nav ul li {
   border: 2px solid #f3f3f3;
   overflow: hidden; /* This ensures the video stays inside the border */
   z-index: 1;
+  transition: transform 0.3s ease-out; /* Smooth scrolling and scaling effect */
+}
+
+/* Progress Bar Container (Initially hidden with opacity 0) */
+.progress-container {
+  position: absolute;
+  bottom: 0; /* Positioned at the bottom of the video */
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Slight background for visibility */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  width: 50%; /* Placeholder percentage for progress */
+  height: 100%;
+  background-color: #ff00d0;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out; /* Smooth transition for progress change */
+}
+
+/* Video Controls */
+.video-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.video-controls .time {
+  font-size: 14px;
+  color: #000;
 }
 
 /* Elliptical Blur Shadow behind the video */
-.media-player {
+/* .media-player {
   position: relative;
   width: 560px; /* Same width as the video */
-  height: 315px; /* Same height as the video */
-  /* z-index: 1; Keep behind the video */
-}
+/* height: 315px; Same height as the video */
+/* z-index: 1; Keep behind the video */
+/* } */
 
-.media-player::before {
+/* .media-player::before {
   margin-top: 65px;
   content: "";
   position: absolute;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Center the blur exactly behind the video */
+/* width: 700px; /* Width of the ellipse */
+/* height: 400px; Height of the ellipse */
+/* background: #ff00d0; */
+/* border-radius: 50%; */
+/* filter: blur(50px); */
+/* transition: transform 0.3s ease-out; Apply smooth scrolling and scaling effect */
+*/
+  /* z-index: 1; Keep the blur behind everything */
+/* }  */
+
+/* Media Player (includes both video and blurred ellipse) */
+.media-player {
+  margin-top: 110px;
+  position: relative;
+  width: 560px;
+  height: 315px;
+  border-radius: 20px;
+  border: 2px solid #f3f3f3;
+  overflow: hidden; /* This ensures the video stays inside the border */
+  transition: transform 0.3s ease-out; /* Smooth scrolling and scaling effect */
+  z-index: 1;
+}
+
+/* Elliptical Blur Shadow behind the video */
+.media-player::before {
+  content: "";
+  position: absolute;
+  top: 70px;
   left: 50%;
   transform: translateX(-50%); /* Center the blur exactly behind the video */
   width: 700px; /* Width of the ellipse */
@@ -106,25 +185,27 @@ nav ul li {
   background: #ff00d0;
   border-radius: 50%;
   filter: blur(50px);
-  /* z-index: 1; Keep the blur behind everything */
+  transition: transform 0.3s ease-out; /* Apply smooth scrolling and scaling effect */
 }
 
 /* Styling for the 'NewJeans' Text */
 .newjeans-text {
-  margin-top: -200px;
+  margin-top: 0px;
   font-size: 400px;
   font-family: "Instrument Serif", system-ui;
+  font-style: normal;
   color: #1298ff;
   -webkit-text-stroke: 1px black; /* Black border around text */
   text-align: center;
-  font-style: normal;
   z-index: -1;
+  transform: translateY(0); /* Initially no movement */
+  transition: transform 0.3s ease-out; /* Smooth scrolling */
 }
 
 .video-controls button {
   width: 56px;
   height: 40px;
-  background-color: #d5cea3;
+  /* background-color: #d5cea3; */
   border: none;
   padding: 0;
   cursor: pointer;
