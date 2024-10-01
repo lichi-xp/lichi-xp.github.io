@@ -37,27 +37,44 @@
       <!-- Media Player Section -->
       <div class="media-player">
         <div class="video-wrapper">
-          <iframe
-            width="560"
-            height="315"
-            src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
-            frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          >
-          </iframe>
+          <video width="560" height="315" controls>
+            <source
+              src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-          <!-- Progress Bar Section -->
-          <div class="progress-container">
+        <div class="video-control-section">
+          <!-- Play-Pause Button -->
+          <button class="play-pause-button">
+            <img src="icons8-pause.gif" alt="Play" class="control-icon" />
+          </button>
+
+          <!-- Volume Button -->
+          <button class="volume-button">
+            <img src="volume-icon.png" alt="Volume" class="control-icon" />
+          </button>
+
+          <!-- Video Duration Bar -->
+          <div class="progress-bar-container">
+            <span class="time start-time">0:00</span>
             <div class="progress-bar">
               <div class="progress"></div>
             </div>
-            <!-- Time Display -->
-            <div class="video-controls">
-              <span class="time">0:00</span>
-              <span class="time">2:20</span>
-            </div>
+            <span class="time end-time">2:21</span>
           </div>
+
+          <!-- Subtitle Button -->
+          <button class="subtitle-button">
+            <img src="subtitle-icon.png" alt="Subtitles" class="control-icon" />
+          </button>
+
+          <!-- Comment Button -->
+          <button class="comment-button">
+            <img src="comment-icon.png" alt="Comment" class="control-icon" />
+          </button>
         </div>
       </div>
 

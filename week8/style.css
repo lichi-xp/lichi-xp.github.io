@@ -72,20 +72,6 @@ img {
   /* align-items: center; */
 }
 
-.video-controls button {
-  width: 56px;
-  height: 40px;
-  background-color: #d5cea3;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  /* border-radius: 5px; */
-}
-
 /* .video-controls button:hover {
     scale: 0.9;
   } */
