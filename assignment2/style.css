@@ -12,7 +12,7 @@ body {
 
 /* Navigation styling */
 nav {
-  margin-top: 60px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -37,6 +37,16 @@ nav ul li {
   border: 1px solid black;
   /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); Light shadow for 3D effect */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 5; /* Ensure it's on top of other elements */
+}
+
+.home-icon {
+  position: fixed;
+  top: 10px;
+  left: 60px;
+  font-size: 70px; /* Adjust the size of the emoji */
+  text-decoration: none; /* Remove underline */
+  z-index: 5; /* Ensure it's on top of other elements */
 }
 
 /* Landing page */
@@ -61,7 +71,7 @@ nav ul li {
   font-style: italic;
   position: absolute; /* Position it absolutely in the container */
   top: -150px; /* Adjust top value to arrange above the video */
-  z-index: 3;
+  z-index: 2;
 }
 
 /* Video Wrapper with border and overflow hidden */
@@ -73,7 +83,7 @@ nav ul li {
   border-radius: 20px;
   border: 2px solid #f3f3f3;
   overflow: hidden; /* This ensures the video stays inside the border */
-  z-index: 2;
+  z-index: 1;
 }
 
 /* Elliptical Blur Shadow behind the video */
@@ -81,10 +91,11 @@ nav ul li {
   position: relative;
   width: 560px; /* Same width as the video */
   height: 315px; /* Same height as the video */
-  z-index: 1; /* Keep behind the video */
+  /* z-index: 1; Keep behind the video */
 }
 
 .media-player::before {
+  margin-top: 65px;
   content: "";
   position: absolute;
   top: 0;
@@ -95,7 +106,7 @@ nav ul li {
   background: #ff00d0;
   border-radius: 50%;
   filter: blur(50px);
-  z-index: -1; /* Keep the blur behind everything */
+  /* z-index: 1; Keep the blur behind everything */
 }
 
 /* Styling for the 'NewJeans' Text */
@@ -107,23 +118,24 @@ nav ul li {
   -webkit-text-stroke: 1px black; /* Black border around text */
   text-align: center;
   font-style: normal;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* Small Decorations (Emojis, wand, etc) */
 .decoration {
   position: absolute;
-  font-size: 30px;
 }
 
 /* Wand emoji decoration */
 .decoration.wand {
-  top: 40%;
+  top: 10%;
   left: 10%;
+  font-size: 50px;
 }
 
 /* Rabbit emoji decoration */
 .decoration.rabbit {
   top: 50%;
   right: 10%;
+  font-size: 50px;
 }
