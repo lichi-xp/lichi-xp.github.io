@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* Navigation styling */
@@ -40,43 +40,28 @@ nav ul li {
 }
 
 /* Landing page */
+/* Main Container for text and video */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 /* Container for the Heading */
 .heading-container {
   text-align: center;
-  position: relative;
 }
 
 /* Styling for the 'NewJeans' Text */
-.newjeans-text {
-  font-size: 300px;
-  font-family: "Instrument Serif", system-ui;
-  color: #1298ff;
-  border: 1px black;
-  z-index: 1;
-  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
-  margin-top: -40px; /* Adjust this to bring 'NewJeans' closer to 'asap' */
-  -webkit-text-stroke: 1px black; /* Black border around text */
-}
-
 .asap-text {
+  margin-top: -30px;
   font-size: 300px;
   font-family: "Instrument Serif", system-ui;
   color: #1298ff;
-  border: 1px black;
-  z-index: 1;
-  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
-  /* margin-top: -40px; Adjust this to bring 'NewJeans' closer to 'asap' */
   -webkit-text-stroke: 1px black; /* Black border around text */
+  text-align: center;
+  font-style: italic;
 }
-
-/* Outer container with Elliptical Shadow */
-/* .media-player {
-  position: relative;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-} */
 
 /* Video Wrapper with border and overflow hidden */
 .video-wrapper {
@@ -102,6 +87,17 @@ nav ul li {
   border-radius: 50%;
   filter: blur(50px);
   z-index: -1; /* Place the shadow behind everything */
+}
+
+/* Adjust the vertical gap between texts */
+.newjeans-text {
+  margin-top: -40px; /* Adjust this to bring 'NewJeans' closer to 'asap' */
+  font-size: 300px;
+  font-family: "Instrument Serif", system-ui;
+  color: #1298ff;
+  -webkit-text-stroke: 1px black; /* Black border around text */
+  text-align: center;
+  font-style: normal;
 }
 
 /* Small Decorations (Emojis, wand, etc) */
