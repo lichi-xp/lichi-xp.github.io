@@ -2,8 +2,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-  background: #fdf594;
+  font-family: "Poppins", system-ui;
+  background: #faffad;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,72 +12,71 @@ body {
 
 /* Navigation styling */
 nav {
-  margin-top: 20px;
+  margin-top: 60px;
   text-align: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  position: fixed;
+  right: 70px;
 }
 
 nav ul li {
-  margin-right: 20px;
-}
-
-nav a {
-  color: var(--text-color);
+  margin-right: 10px;
 }
 
 .nav-button {
   text-decoration: none;
   color: #000000;
-  background: linear-gradient(
-    to bottom,
-    #f4fcef,
-    #b1e877
-  ); /* Light green gradient */
-  padding: 10px 25px;
+  background: linear-gradient(to bottom, #f4fcef, #b1e877);
+  padding: 10px 20px;
   border-radius: 30px; /* Rounded corners */
-  border: 2px solid black;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Light shadow for 3D effect */
+  border: 1px solid black;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); Light shadow for 3D effect */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Large Title styling for 'asap' and 'NewJeans' */
-.title {
-  font-size: 140px;
-  color: #3c89f5;
-  border: 1px black;
+/* Landing page */
+/* Container for the Heading */
+.heading-container {
   text-align: center;
-  font-family: "Instrument Serif", serif;
   position: relative;
 }
 
-/* 'asap' span styling */
-.title span {
-  display: inline-block;
-  position: relative;
-  font-style: italic;
+/* Styling for the 'NewJeans' Text */
+.newjeans-text {
+  font-size: 300px;
+  font-family: "Instrument Serif", system-ui;
+  color: #1298ff;
   border: 1px black;
+  z-index: 1;
+  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+  margin-top: -40px; /* Adjust this to bring 'NewJeans' closer to 'asap' */
+  -webkit-text-stroke: 1px black; /* Black border around text */
 }
 
-/* Adding emoji to the title */
-.title span.flower {
-  position: absolute;
-  top: -30px;
-  right: -30px;
+.asap-text {
+  font-size: 300px;
+  font-family: "Instrument Serif", system-ui;
+  color: #1298ff;
+  border: 1px black;
+  z-index: 1;
+  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+  /* margin-top: -40px; Adjust this to bring 'NewJeans' closer to 'asap' */
+  -webkit-text-stroke: 1px black; /* Black border around text */
 }
 
 /* Outer container with Elliptical Shadow */
-.media-player {
+/* .media-player {
   position: relative;
-  top: 60%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-}
+} */
 
 /* Video Wrapper with border and overflow hidden */
 .video-wrapper {
