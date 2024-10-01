@@ -42,62 +42,72 @@ nav ul li {
 /* Landing page */
 /* Main Container for text and video */
 .container {
+  position: relative; /* Relative position to control absolute elements */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-/* Container for the Heading */
-.heading-container {
-  text-align: center;
+  height: 100%; /* Full container height */
+  margin-top: 100px;
 }
 
-/* Styling for the 'NewJeans' Text */
+/* Styling for the 'asap' Text */
 .asap-text {
-  margin-top: -30px;
   font-size: 300px;
   font-family: "Instrument Serif", system-ui;
   color: #1298ff;
   -webkit-text-stroke: 1px black; /* Black border around text */
   text-align: center;
   font-style: italic;
+  position: absolute; /* Position it absolutely in the container */
+  top: -150px; /* Adjust top value to arrange above the video */
+  z-index: 3;
 }
 
 /* Video Wrapper with border and overflow hidden */
 .video-wrapper {
+  margin-top: 110px;
   position: relative;
   width: 560px;
   height: 315px;
   border-radius: 20px;
   border: 2px solid #f3f3f3;
   overflow: hidden; /* This ensures the video stays inside the border */
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Elliptical Blur Shadow behind the video */
+.media-player {
+  position: relative;
+  width: 560px; /* Same width as the video */
+  height: 315px; /* Same height as the video */
+  z-index: 1; /* Keep behind the video */
+}
+
 .media-player::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 700px;
-  height: 400px;
+  transform: translateX(-50%); /* Center the blur exactly behind the video */
+  width: 700px; /* Width of the ellipse */
+  height: 400px; /* Height of the ellipse */
   background: #ff00d0;
   border-radius: 50%;
   filter: blur(50px);
-  z-index: -1; /* Place the shadow behind everything */
+  z-index: -1; /* Keep the blur behind everything */
 }
 
-/* Adjust the vertical gap between texts */
+/* Styling for the 'NewJeans' Text */
 .newjeans-text {
-  margin-top: -40px; /* Adjust this to bring 'NewJeans' closer to 'asap' */
-  font-size: 300px;
+  margin-top: -200px;
+  font-size: 400px;
   font-family: "Instrument Serif", system-ui;
   color: #1298ff;
   -webkit-text-stroke: 1px black; /* Black border around text */
   text-align: center;
   font-style: normal;
+  z-index: 0;
 }
 
 /* Small Decorations (Emojis, wand, etc) */
