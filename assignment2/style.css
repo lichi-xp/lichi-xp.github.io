@@ -130,6 +130,8 @@ nav ul li {
   flex-grow: 1;
   margin: 0 10px;
   cursor: pointer; /* Add this to make the progress bar clickable */
+  position: relative;
+  z-index: 1; /* Progress bar itself needs to have a lower z-index */
 }
 
 .progress-bar {
@@ -157,6 +159,31 @@ nav ul li {
 .time {
   font-size: 14px;
   color: #000;
+}
+
+/* Most played button styling */
+.most-played-button {
+  position: absolute;
+  top: 40px; /* Position it below the progress bar */
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    #f4fcef,
+    #b1e877
+  ); /* Similar gradient to nav buttons */
+  padding: 10px 20px;
+  border-radius: 30px; /* Rounded corners */
+  border: 1px solid black;
+  font-size: 14px;
+  color: black;
+  white-space: nowrap;
+  display: none; /* Initially hidden */
+  z-index: 10;
+}
+
+/* Show the 'Most played' button on hover within the first 7 seconds */
+.progress-bar-container:hover .most-played-button {
+  display: none;
 }
 
 /* Play-Pause button styling */

@@ -109,3 +109,33 @@ document.addEventListener("DOMContentLoaded", function () {
     video.currentTime = clickTime; // Seek the video to the clicked time
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("video");
+  const progressBar = document.querySelector(".progress-bar");
+  const mostPlayedButton = document.querySelector(".most-played-button");
+
+  // When hovering over the progress bar, show the "Most played" button
+  progressBar.addEventListener("mousemove", function (e) {
+    const progressBarWidth = progressBar.offsetWidth;
+    const mouseX = e.offsetX;
+    const percentage = mouseX / progressBarWidth;
+    const hoverTime = percentage * video.duration;
+
+    // Show "Most played" only between 0:00 and 0:07
+    if (hoverTime >= 0 && hoverTime <= 7) {
+      mostPlayedButton.style.display = "block";
+
+      // Position the "Most played" button at the current mouse position
+      const buttonLeft = mouseX - mostPlayedButton.offsetWidth / 2;
+      mostPlayedButton.style.left = `${buttonLeft}px`;
+    } else {
+      mostPlayedButton.style.display = "none";
+    }
+  });
+
+  // Hide the "Most played" button when leaving the progress bar
+  progressBar.addEventListener("mouseleave", function () {
+    mostPlayedButton.style.display = "none";
+  });
+});
