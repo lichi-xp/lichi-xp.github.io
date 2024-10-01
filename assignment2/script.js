@@ -126,9 +126,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (hoverTime >= 0 && hoverTime <= 7) {
       mostPlayedButton.style.display = "block";
 
-      // Position the "Most played" button at the current mouse position
+      // Position the "Most played" button at the current mouse position, but outside the progress bar
       const buttonLeft = mouseX - mostPlayedButton.offsetWidth / 2;
       mostPlayedButton.style.left = `${buttonLeft}px`;
+
+      // Position the button below the progress bar (outside of it)
+      mostPlayedButton.style.top = `${progressBar.offsetHeight + 10}px`; // 10px gap below the progress bar
     } else {
       mostPlayedButton.style.display = "none";
     }
