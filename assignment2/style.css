@@ -3,19 +3,40 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #fdf594, #ff96d7);
-  height: 100vh;
+  background: #fdf594;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Navigation styling */
+nav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 /* Large Title styling for 'asap' and 'NewJeans' */
 .title {
   font-size: 140px;
   color: #3c89f5;
+  border: 1px black;
   text-align: center;
   font-family: "Instrument Serif", serif;
   position: relative;
@@ -25,6 +46,8 @@ body {
 .title span {
   display: inline-block;
   position: relative;
+  font-style: italic;
+  border: 1px black;
 }
 
 /* Adding emoji to the title */
@@ -34,28 +57,34 @@ body {
   right: -30px;
 }
 
-/* h1 styling for 'NewJeans' */
-.title h1 {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  color: #2672d9;
-  font-size: 100px;
-  text-align: center;
-}
-
-/* Video Placeholder */
-.video-placeholder {
-  position: absolute;
+/* Video Placeholder with Elliptical Shadow */
+.media-player {
+  position: relative; /* Ensure that the ::before is positioned relative to this element */
   width: 560px;
   height: 315px;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 5px solid #f3f3f3;
+
+  border-radius: 20px; /* Keep the video player rectangular with slightly rounded corners */
+  border: 2px solid #f3f3f3;
+
+  z-index: 1; /* Keep the media player above the shadow */
+}
+
+/* Adding the Elliptical Shadow Behind using ::before */
+.media-player::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; /* Width of the ellipse */
+  height: 400px; /* Height of the ellipse */
+  background: #ff00d0; /* Color and transparency for the shadow */
+  border-radius: 50%; /* Make it elliptical */
+  filter: blur(50px); /* Apply the blur effect */
+  z-index: -1; /* Place the shadow behind the media player */
 }
 
 /* Small Decorations (Emojis, wand, etc) */

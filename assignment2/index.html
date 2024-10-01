@@ -12,31 +12,42 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
+    <script src="script.js" defer></script>
   </head>
 
   <body>
+    <!-- Navigation Section -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Playlists</a></li>
+      </ul>
+    </nav>
+
     <!-- Main Title ASAP with emoji -->
     <div class="title">
       <span>asap</span>
       <span class="flower">🌺</span>
-      <h1>NewJeans</h1>
+      NewJeans
     </div>
 
     <!-- YouTube Video Embed -->
-    <div class="video-placeholder">
-      <iframe
-        width="560"
-        height="315"
-        src="https://drive.google.com/file/d/19rGgqvVGqAqApO3O9OG-iJX5uPwMa-U1/view?usp=sharing"
-        title="video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <main class="container">
+      <!-- Media Player Section -->
+      <div class="media-player">
+        <video>
+          <source
+            src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
 
-    <!-- Decorations (Emojis, wand, rabbit, etc) -->
-    <div class="decoration wand">🪄</div>
-    <div class="decoration rabbit">🐰</div>
+      <!-- Decorations (Emojis, wand, rabbit, etc) -->
+      <div class="decoration wand">🪄</div>
+      <div class="decoration rabbit">🐰</div>
+    </main>
   </body>
 </html>
