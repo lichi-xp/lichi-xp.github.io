@@ -8,7 +8,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 /* Navigation styling */
@@ -28,8 +27,22 @@ nav ul li {
 }
 
 nav a {
-  text-decoration: none;
   color: var(--text-color);
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #000000;
+  background: linear-gradient(
+    to bottom,
+    #f4fcef,
+    #b1e877
+  ); /* Light green gradient */
+  padding: 10px 25px;
+  border-radius: 30px; /* Rounded corners */
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Light shadow for 3D effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Large Title styling for 'asap' and 'NewJeans' */
@@ -57,34 +70,39 @@ nav a {
   right: -30px;
 }
 
-/* Video Placeholder with Elliptical Shadow */
+/* Outer container with Elliptical Shadow */
 .media-player {
-  position: relative; /* Ensure that the ::before is positioned relative to this element */
-  width: 560px;
-  height: 315px;
+  position: relative;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  border-radius: 20px; /* Keep the video player rectangular with slightly rounded corners */
-  border: 2px solid #f3f3f3;
-
-  z-index: 1; /* Keep the media player above the shadow */
+  z-index: 1;
 }
 
-/* Adding the Elliptical Shadow Behind using ::before */
+/* Video Wrapper with border and overflow hidden */
+.video-wrapper {
+  position: relative;
+  width: 560px;
+  height: 315px;
+  border-radius: 20px;
+  border: 2px solid #f3f3f3;
+  overflow: hidden; /* This ensures the video stays inside the border */
+  z-index: 1;
+}
+
+/* Elliptical Blur Shadow behind the video */
 .media-player::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px; /* Width of the ellipse */
-  height: 400px; /* Height of the ellipse */
-  background: #ff00d0; /* Color and transparency for the shadow */
-  border-radius: 50%; /* Make it elliptical */
-  filter: blur(50px); /* Apply the blur effect */
-  z-index: -1; /* Place the shadow behind the media player */
+  width: 700px;
+  height: 400px;
+  background: #ff00d0;
+  border-radius: 50%;
+  filter: blur(50px);
+  z-index: -1; /* Place the shadow behind everything */
 }
 
 /* Small Decorations (Emojis, wand, etc) */

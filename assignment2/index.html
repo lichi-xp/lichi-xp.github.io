@@ -19,10 +19,10 @@
     <!-- Navigation Section -->
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
+        <li><a href="#" class="nav-button">Home</a></li>
+        <li><a href="#" class="nav-button">Videos</a></li>
+        <li><a href="#" class="nav-button">Music</a></li>
+        <li><a href="#" class="nav-button">Playlists</a></li>
       </ul>
     </nav>
 
@@ -37,12 +37,17 @@
     <main class="container">
       <!-- Media Player Section -->
       <div class="media-player">
-        <video>
-          <source
+        <div class="video-wrapper">
+          <iframe
+            width="560"
+            height="315"
             src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
-            type="video/mp4"
-          />
-        </video>
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
       </div>
 
       <!-- Decorations (Emojis, wand, rabbit, etc) -->
