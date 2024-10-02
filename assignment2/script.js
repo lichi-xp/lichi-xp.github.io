@@ -82,16 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const percentage = (video.currentTime / video.duration) * 100;
     progressBar.style.width = `${percentage}%`;
 
-    // Update the displayed start time (current time)
+    // Update the displayed start time (current video time)
     startTime.textContent = formatTime(video.currentTime);
   });
 
-  // Set the video duration once it's loaded
+  // Set the video duration once metadata is loaded
   video.addEventListener("loadedmetadata", function () {
     endTime.textContent = formatTime(video.duration);
   });
 
-  // Format time in MM:SS
+  // Function to format time from seconds to MM:SS
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60)
@@ -100,13 +100,17 @@ document.addEventListener("DOMContentLoaded", function () {
     return `${minutes}:${secs}`;
   }
 
-  // Seek video by clicking on the progress bar
+  // Seek video when the user clicks on the progress bar
   progressBarContainer.addEventListener("click", function (e) {
-    const progressBarWidth = progressBarContainer.offsetWidth;
-    const clickPositionX = e.offsetX; // Get the X position where the click occurred
-    const clickTime = (clickPositionX / progressBarWidth) * video.duration; // Calculate the corresponding time
+    const rect = progressBarContainer.getBoundingClientRect(); // Get the progress bar's position info
+    const clickPositionX = e.clientX - rect.left; // Get the X position of the mouse when clicked relative to the bar's offset
+    const adjustedClickPosition = Math.max(
+      0,
+      Math.min(clickPositionX, rect.width)
+    ); // Ensure the click doesn't exceed the bar's width
+    const clickTime = (adjustedClickPosition / rect.width) * video.duration; // Calculate the time based on the click position and bar width
 
-    video.currentTime = clickTime; // Seek the video to the clicked time
+    video.currentTime = clickTime; // Seek the video to the calculated time
   });
 });
 
@@ -123,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const hoverTime = percentage * video.duration;
 
     // Show "Most played" only between 0:00 and 0:07
-    if (hoverTime >= 0 && hoverTime <= 7) {
+    if (hoverTime >= 41 && hoverTime <= 58) {
       mostPlayedButton.style.display = "block";
 
       // Position the "Most played" button at the current mouse position, but outside the progress bar
@@ -142,3 +146,166 @@ document.addEventListener("DOMContentLoaded", function () {
     mostPlayedButton.style.display = "none";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("video");
+  const progressBar = document.querySelector(".progress-bar .progress");
+  const startTime = document.querySelector(".start-time");
+  const endTime = document.querySelector(".end-time");
+  const progressBarContainer = document.querySelector(
+    ".progress-bar-container"
+  );
+
+  let isDragging = false; // Flag to indicate whether the user is dragging the progress bar
+
+  // Update the progress bar as the video plays
+  video.addEventListener("timeupdate", function () {
+    if (!isDragging) {
+      // Only update if not dragging
+      const percentage = (video.currentTime / video.duration) * 100;
+      progressBar.style.width = `${percentage}%`;
+      startTime.textContent = formatTime(video.currentTime); // Update the current time display
+    }
+  });
+
+  // Set the video duration once it's loaded
+  video.addEventListener("loadedmetadata", function () {
+    endTime.textContent = formatTime(video.duration); // Display the video duration
+  });
+
+  // Function to format time in MM:SS
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${minutes}:${secs}`;
+  }
+
+  // Mouse down on the progress bar (start dragging)
+  progressBarContainer.addEventListener("mousedown", function (e) {
+    isDragging = true;
+    updateVideoTime(e); // Update the video time immediately on click
+  });
+
+  // Mouse move on the progress bar (while dragging)
+  progressBarContainer.addEventListener("mousemove", function (e) {
+    if (isDragging) {
+      updateVideoTime(e); // Update the video time as the user drags
+    }
+  });
+
+  // Mouse up (end dragging)
+  document.addEventListener("mouseup", function () {
+    if (isDragging) {
+      isDragging = false;
+    }
+  });
+
+  // Update the video time based on mouse position
+  function updateVideoTime(e) {
+    const rect = progressBarContainer.getBoundingClientRect(); // Get the progress bar position
+    const clickPositionX = e.clientX - rect.left; // Get the X position relative to the progress bar
+    const adjustedClickPosition = Math.max(
+      0,
+      Math.min(clickPositionX, rect.width)
+    ); // Ensure the click stays within the progress bar
+    const clickTime = (adjustedClickPosition / rect.width) * video.duration; // Calculate the new video time based on the click position
+
+    video.currentTime = clickTime; // Set the video's current time to the calculated value
+
+    // Update the progress bar width and current time display
+    const percentage = (video.currentTime / video.duration) * 100;
+    progressBar.style.width = `${percentage}%`;
+    startTime.textContent = formatTime(video.currentTime);
+  }
+});
+
+const lyrics = [
+  { time: 0, text: "" },
+  { time: 3, text: "Hi, it's me again" },
+  { time: 5, text: "I'm back (hey)" },
+  { time: 7, text: "Let's talk ASAP" },
+  { time: 8, text: "Do you have the time? (Let's talk)" },
+  { time: 11, text: "A-S-A-P, baby" },
+  { time: 15, text: "Hurry up, don't be lazy" },
+  { time: 18, text: "A-S-A-P, baby" },
+  { time: 22, text: "Hurry up, don't say maybe" },
+  { time: 26, text: "할 얘기 다 한 줄 알고 빨간색 눌러 (ah)" },
+  { time: 29, text: "끊고 나니 생각나서 다시 또 울려" },
+  { time: 33, text: "There's this one more thing" },
+  { time: 35, text: "I'll show you, come with me" },
+  { time: 37, text: "So much to do and lots to see" },
+  { time: 40, text: "Just for a minute" },
+  { time: 41, text: "Tik-tok, tik-tok, tik-tok, tik, tik" },
+  { time: 47, text: "Just for a minute" },
+  { time: 49, text: "Tik-tok, tik-tok, tik-tok, tik, tik" },
+  { time: 53, text: "" },
+  { time: 57, text: "A-S-A-P, baby" },
+  { time: 61, text: "Hurry up, don't say maybe" },
+  { time: 65, text: "A-S-A-P, baby" },
+  { time: 68, text: "Hurry up, don't say maybe" },
+  { time: 71, text: "Tik-tok, tik-tok, tik-tok, tik, tik" },
+  { time: 86, text: "Hi, it's me again" },
+  { time: 88, text: "I'm back (hey)" },
+  { time: 90, text: "Let's talk ASAP" },
+  { time: 91, text: "Do you have the time? (Do you like it?)" },
+  { time: 93, text: "(Let's talk)" },
+  { time: 94, text: "A-S-A-P, baby" },
+  { time: 98, text: "Hurry up, don't be lazy" },
+  { time: 101, text: "A-S-A-P, baby" },
+  { time: 105, text: "Hurry up, don't say maybe" },
+  { time: 109, text: "A-S-A-P, baby" },
+  { time: 112, text: "Hurry up, don't say" },
+  { time: 117, text: "Just for a minute" },
+  { time: 120, text: "Tik-tok, tik-tok, tik-tok, tik, tik" },
+  { time: 124, text: "Just for a minute" },
+  { time: 127, text: "Tik-tok, tik-tok, tik-tok, tik, tik" },
+  { time: 133, text: "" },
+];
+
+const subtitleDisplay = document.querySelector(".subtitle-display");
+const video = document.getElementById("video");
+
+video.addEventListener("timeupdate", function () {
+  const currentTime = video.currentTime;
+
+  // Find the current lyric that matches the video's time
+  const currentLyric = lyrics.find((lyric, index) => {
+    const nextLyricTime = lyrics[index + 1]
+      ? lyrics[index + 1].time
+      : video.duration;
+    return currentTime >= lyric.time && currentTime < nextLyricTime;
+  });
+
+  // Display the lyric if it's not already displayed
+  if (currentLyric) {
+    subtitleDisplay.innerText = currentLyric.text;
+    subtitleDisplay.style.display = "block";
+    subtitleDisplay.style.opacity = "1"; // Make sure it fades in smoothly
+  }
+});
+
+document
+  .querySelector(".subtitle-button")
+  .addEventListener("click", function () {
+    const subtitleDisplay = document.querySelector(".subtitle-display");
+    const videoControls = document.querySelector(".video-control-section");
+
+    if (subtitleDisplay.style.display === "block") {
+      // Hide subtitle and move video controls back up
+      subtitleDisplay.style.opacity = "0";
+      setTimeout(() => {
+        subtitleDisplay.style.display = "none";
+      }, 500); // Wait for fade out animation
+      videoControls.style.transform = "translateY(0)"; // Move controls back to original position
+    } else {
+      // Show subtitle and move video controls down
+      subtitleDisplay.style.display = "block";
+      setTimeout(() => {
+        subtitleDisplay.style.opacity = "1";
+      }, 10); // Delay to ensure it fades in smoothly
+
+      videoControls.style.transform = "translateY(40px)"; // Adjust distance as needed
+    }
+  });
