@@ -293,19 +293,37 @@ document
     const videoControls = document.querySelector(".video-control-section");
 
     if (subtitleDisplay.style.display === "block") {
-      // Hide subtitle and move video controls back up
+      // Hide subtitle and move video controls back
       subtitleDisplay.style.opacity = "0";
       setTimeout(() => {
         subtitleDisplay.style.display = "none";
-      }, 500); // Wait for fade out animation
+      }, 500); // Wait for fade-out effect to complete
       videoControls.style.transform = "translateY(0)"; // Move controls back to original position
     } else {
       // Show subtitle and move video controls down
       subtitleDisplay.style.display = "block";
       setTimeout(() => {
         subtitleDisplay.style.opacity = "1";
-      }, 10); // Delay to ensure it fades in smoothly
+      }, 10); // Ensure smooth fade-in effect
 
-      videoControls.style.transform = "translateY(40px)"; // Adjust distance as needed
+      videoControls.style.transform = "translateY(40px)"; // Adjust the distance as needed
     }
   });
+
+// Add scroll event to hide subtitle and video control bar when scrolling up
+window.addEventListener("scroll", function () {
+  const subtitleDisplay = document.querySelector(".subtitle-display");
+  const videoControls = document.querySelector(".video-control-section");
+
+  if (window.scrollY > 70) {
+    // Show when scrolling down
+    videoControls.style.opacity = 1;
+    if (subtitleDisplay.style.display === "block") {
+      subtitleDisplay.style.opacity = 1;
+    }
+  } else {
+    // Hide when scrolling up
+    videoControls.style.opacity = 0;
+    subtitleDisplay.style.opacity = 0;
+  }
+});
