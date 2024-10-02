@@ -423,7 +423,9 @@ nav ul li {
   border-radius: 20px;
   margin-right: 10px;
   background-color: #f0f0f0;
-  color: black;
+  color: #ff00a6;
+  font-family: "Poppins", system-ui;
+  font-style: bold;
 }
 
 /* Send Button */

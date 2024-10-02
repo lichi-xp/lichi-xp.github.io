@@ -11,7 +11,7 @@ window.addEventListener("scroll", function () {
 
   // Max position for the video (media player)
   const videoMaxPosition = viewportHeight / 2 - mediaPlayer.offsetHeight / 2; // Center the video
-  const textMaxGap = 150; // Extra gap for 'NewJeans' text after video reaches max position
+  const textMaxGap = 140; // Extra gap for 'NewJeans' text after video reaches max position
 
   if (scrollValue > scrollThreshold) {
     // Move video downward as the user scrolls until it reaches center of the viewport
@@ -328,15 +328,73 @@ window.addEventListener("scroll", function () {
     videoControls.style.opacity = 1;
 
     // Only show subtitle if it's been activated by the button
-    if (subtitlesActive) {
-      // Check if the subtitle has been activated
+    if (subtitleDisplay.style.display === "block") {
       subtitleDisplay.style.opacity = 1;
     }
   } else {
-    // Hide when scrolling up (or near the top)
+    // Hide when scrolling up
     videoControls.style.opacity = 0;
 
-    // Hide the subtitle regardless of whether it's active or not
-    subtitleDisplay.style.opacity = 0;
+    // Only hide subtitle if it's been activated
+    if (subtitleDisplay.style.display === "block") {
+      subtitleDisplay.style.opacity = 0;
+    }
   }
 });
+
+let isMuted = false; // Flag to track mute state
+const volumeButton = document.querySelector(".volume-button");
+
+volumeButton.addEventListener("click", function () {
+  if (isMuted) {
+    // If currently muted, unmute and set volume to full
+    video.muted = false;
+    video.volume = 1; // Set volume to 100%
+    volumeButton.querySelector("img").src = "volume-on-icon.png"; // Update icon
+  } else {
+    // If currently unmuted, mute the video
+    video.muted = true;
+    volumeButton.querySelector("img").src = "volume-off-icon.png"; // Update icon
+  }
+
+  // Toggle the mute flag
+  isMuted = !isMuted;
+});
+
+// Get the input text field and the send button
+const commentInput = document.getElementById("comment-input");
+const sendButton = document.querySelector(".send-button"); // Correct this line to use querySelector
+const commentBox = document.querySelector(".comment-input"); // The comment input box container
+
+// Function to reset input to default state
+function resetInput() {
+  commentInput.value = ""; // Clear the input text
+  commentBox.classList.add("shake"); // Add the shake class
+
+  // Remove the shake class after the animation completes
+  setTimeout(function () {
+    commentBox.classList.remove("shake");
+  }, 500); // Matches the 0.5s animation duration
+}
+
+// Event listener for 'Enter' key press
+commentInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); // Prevent the form from submitting if in a form
+    resetInput(); // Clear the input field
+  }
+});
+
+// Event listener for clicking the send button
+sendButton.addEventListener("click", function () {
+  resetInput(); // Clear the input field
+});
+
+document
+  .getElementById("comment-nav-button")
+  .addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent the default anchor behavior
+    document
+      .getElementById("comment-section")
+      .scrollIntoView({ behavior: "smooth" });
+  });
