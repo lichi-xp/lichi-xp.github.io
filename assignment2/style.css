@@ -505,22 +505,3 @@ nav ul li {
   background: #ff00d0;
   color: white;
 }
-
-/* Small Decorations (Emojis, wand, etc) */
-.decoration {
-  position: absolute;
-}
-
-/* Wand emoji decoration */
-.decoration.wand {
-  top: 10%;
-  left: 10%;
-  font-size: 50px;
-}
-
-/* Rabbit emoji decoration */
-.decoration.rabbit {
-  top: 50%;
-  right: 10%;
-  font-size: 50px;
-}

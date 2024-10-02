@@ -398,3 +398,15 @@ document
       .getElementById("comment-section")
       .scrollIntoView({ behavior: "smooth" });
   });
+
+// Get the "Contact" nav button and the contact section
+const contactButton = document.getElementById("contact-nav-button");
+const contactSection = document.querySelector(".contact-section");
+
+// Add click event to the "Contact" nav button
+contactButton.addEventListener("click", function (e) {
+  e.preventDefault(); // Prevent default anchor behavior
+
+  // Scroll to the contact section smoothly
+  contactSection.scrollIntoView({ behavior: "smooth" });
+});
