@@ -59,22 +59,13 @@ document
 
 document.querySelector(".volume-button").addEventListener("click", function () {
   const video = document.querySelector("video");
-  const volumeIcon = this.querySelector("img"); // Get the icon inside the button
-
   if (video.muted) {
     video.muted = false;
-    volumeIcon.src = "media/high-volume.png"; // Change to volume on icon
-    volumeIcon.alt = "Unmute"; // Update alt text for better accessibility
-    console.log("Audio unmuted, icon changed to high-volume.");
+    this.querySelector("img").src = "volume-on-icon.png"; // Change to volume on icon
   } else {
     video.muted = true;
-    volumeIcon.src = "media/no-audio.png"; // Change to volume off icon
-    volumeIcon.alt = "Mute"; // Update alt text for better accessibility
-    console.log("Audio muted, icon changed to no-audio.");
+    this.querySelector("img").src = "volume-off-icon.png"; // Change to volume off icon
   }
-
-  // Log the current src to check if it has been updated
-  console.log("Current icon src:", volumeIcon.src);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -420,35 +411,5 @@ contactButton.addEventListener("click", function (e) {
   contactSection.scrollIntoView({ behavior: "smooth" });
 });
 
+// Select all the social buttons
 const socialButtons = document.querySelectorAll(".social-button");
-
-// Select the fullscreen button and video element
-const fullscreenButton = document.querySelector(".fullscreen-button");
-const videoElement = document.querySelector("video");
-
-// Function to toggle fullscreen
-fullscreenButton.addEventListener("click", function () {
-  if (!document.fullscreenElement) {
-    // If not in fullscreen, request fullscreen for the video element
-    if (videoElement.requestFullscreen) {
-      videoElement.requestFullscreen();
-    } else if (videoElement.webkitRequestFullscreen) {
-      // For Safari
-      videoElement.webkitRequestFullscreen();
-    } else if (videoElement.msRequestFullscreen) {
-      // For IE11
-      videoElement.msRequestFullscreen();
-    }
-  } else {
-    // If in fullscreen, exit fullscreen mode
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      // For Safari
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      // For IE11
-      document.msExitFullscreen();
-    }
-  }
-});
