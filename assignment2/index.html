@@ -34,67 +34,77 @@
       <!-- 'asap' Text -->
       <div class="asap-text">asap</div>
 
-      <div class="media-comment-container">
-        <!-- Media Player Section -->
-        <div class="media-player">
-          <div class="video-wrapper">
-            <video id="video" width="560" height="315" controls>
-              <source
-                src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <!-- Subtitle Display Section -->
-          <div class="subtitle-display"></div>
-
-          <div class="video-control-section">
-            <!-- Play-Pause Button -->
-            <button class="play-pause-button">
-              <img src="play-icon.png" alt="Play" class="control-icon" />
-            </button>
-
-            <!-- Volume Button -->
-            <div class="volume-control">
-              <button class="volume-button">
-                <img src="volume-icon.png" alt="Volume" class="control-icon" />
-              </button>
-            </div>
-
-            <!-- Video Duration Bar -->
-            <div class="progress-bar-container">
-              <span class="time start-time">0:00</span>
-              <div class="progress-bar">
-                <div class="progress"></div>
-                <!-- Most played button initially hidden -->
-                <div class="most-played-button">Most played</div>
-              </div>
-              <span class="time end-time">2:20</span>
-            </div>
-
-            <!-- Subtitle Button -->
-            <button class="subtitle-button">
-              <img
-                src="subtitle-icon.png"
-                alt="Subtitles"
-                class="control-icon"
-              />
-            </button>
-
-            <!-- Comment Button -->
-            <button class="comment-button">
-              <img src="comment-icon.png" alt="Comment" class="control-icon" />
-            </button>
-          </div>
+      <!-- Media Player Section -->
+      <div class="media-player">
+        <div class="video-wrapper">
+          <video id="video" width="560" height="315" controls>
+            <source
+              src="NewJeans (뉴진스) 'ASAP' Official MV.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
         </div>
-        <div class="comment-section"></div>
+
+        <!-- Subtitle Display Section -->
+        <div class="subtitle-display"></div>
+
+        <div class="video-control-section">
+          <!-- Play-Pause Button -->
+          <button class="play-pause-button">
+            <img src="play-icon.png" alt="Play" class="control-icon" />
+          </button>
+
+          <!-- Volume Button -->
+          <button class="volume-button">
+            <img src="volume-icon.png" alt="Volume" class="control-icon" />
+          </button>
+
+          <!-- Video Duration Bar -->
+          <div class="progress-bar-container">
+            <span class="time start-time">0:00</span>
+            <div class="progress-bar">
+              <div class="progress"></div>
+              <!-- Most played button initially hidden -->
+              <div class="most-played-button">Most played</div>
+            </div>
+            <span class="time end-time">2:20</span>
+          </div>
+
+          <!-- Subtitle Button -->
+          <button class="subtitle-button">
+            <img src="subtitle-icon.png" alt="Subtitles" class="control-icon" />
+          </button>
+
+          <!-- Comment Button -->
+          <button class="comment-button">
+            <img src="comment-icon.png" alt="Comment" class="control-icon" />
+          </button>
+        </div>
       </div>
 
       <!-- 'NewJeans' Text -->
       <div class="newjeans-text">NewJeans</div>
     </main>
+
+    <!-- Comment Section -->
+    <div class="comment-container">
+      <div class="comment-header">comment</div>
+      <div class="comment-content">
+        <div class="comment-box">most played</div>
+        <div class="comment-box">most played</div>
+        <div class="comment-box">most played</div>
+        <div class="comment-box">most played</div>
+        <div class="emoji-box">🐰</div>
+      </div>
+
+      <!-- Text input section -->
+      <div class="comment-input">
+        <input type="text" placeholder="share your thoughts..." />
+        <button class="send-button"></button>
+      </div>
+    </div>
+
     <!-- Decorations (Emojis, wand, rabbit, etc) -->
     <div class="decoration wand">🪄</div>
     <div class="decoration rabbit">🐰</div>
