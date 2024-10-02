@@ -256,7 +256,7 @@ nav ul li {
 .media-player::before {
   content: "";
   position: absolute;
-  top: 70px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%); /* Center the blur exactly behind the video */
   width: 700px; /* Width of the ellipse */
@@ -319,49 +319,6 @@ nav ul li {
   align-items: center;
   overflow: hidden;
   /* border-radius: 5px; */
-}
-
-.volume-control {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse; /* Display the volume button at the bottom */
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-}
-
-.volume-slider-container {
-  position: absolute;
-  bottom: 50px; /* Place above the volume button */
-  width: 10px;
-  height: 100px; /* Height of the slider */
-  background-color: #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  cursor: pointer;
-  display: none; /* Hide the slider when not adjusting */
-  transition: opacity 0.3s ease;
-}
-
-.volume-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #bbb;
-  border: 1px solid black;
-}
-
-.volume-level {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50%; /* Placeholder for the initial volume level */
-  background-color: #1298ff;
-  transition: height 0.3s ease;
-}
-
-.volume-button:hover + .volume-slider-container {
-  display: block; /* Display the slider when hovering over the volume button */
 }
 
 /* Small Decorations (Emojis, wand, etc) */
