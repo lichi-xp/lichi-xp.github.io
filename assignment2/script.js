@@ -410,3 +410,27 @@ contactButton.addEventListener("click", function (e) {
   // Scroll to the contact section smoothly
   contactSection.scrollIntoView({ behavior: "smooth" });
 });
+
+// Select all the social buttons
+const socialButtons = document.querySelectorAll(".social-button");
+
+// Function to generate random positions for the buttons
+function randomizePositions() {
+  const container = document.querySelector(".social-buttons");
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+
+  socialButtons.forEach((button) => {
+    // Generate random x and y positions within the container boundaries
+    const randomX = Math.random() * (containerWidth - button.offsetWidth);
+    const randomY =
+      Math.random() * (containerHeight - button.offsetHeight - 60); // Subtract heading height
+
+    // Apply the random positions
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+  });
+}
+
+// Call the function to randomize the button positions
+randomizePositions();
