@@ -267,7 +267,12 @@ const lyrics = [
 const subtitleDisplay = document.querySelector(".subtitle-display");
 const video = document.getElementById("video");
 
+let subtitlesActive = false; // Flag to check if subtitles are active
+
+// Update subtitles only if activated by the subtitle button
 video.addEventListener("timeupdate", function () {
+  if (!subtitlesActive) return; // Do nothing if subtitles are not active
+
   const currentTime = video.currentTime;
 
   // Find the current lyric that matches the video's time
@@ -286,19 +291,21 @@ video.addEventListener("timeupdate", function () {
   }
 });
 
+// Subtitle button click event
 document
   .querySelector(".subtitle-button")
   .addEventListener("click", function () {
     const subtitleDisplay = document.querySelector(".subtitle-display");
     const videoControls = document.querySelector(".video-control-section");
 
-    if (subtitleDisplay.style.display === "block") {
+    if (subtitlesActive) {
       // Hide subtitle and move video controls back
       subtitleDisplay.style.opacity = "0";
       setTimeout(() => {
         subtitleDisplay.style.display = "none";
       }, 500); // Wait for fade-out effect to complete
       videoControls.style.transform = "translateY(0)"; // Move controls back to original position
+      subtitlesActive = false; // Deactivate subtitles
     } else {
       // Show subtitle and move video controls down
       subtitleDisplay.style.display = "block";
@@ -307,6 +314,7 @@ document
       }, 10); // Ensure smooth fade-in effect
 
       videoControls.style.transform = "translateY(40px)"; // Adjust the distance as needed
+      subtitlesActive = true; // Activate subtitles
     }
   });
 
@@ -318,12 +326,17 @@ window.addEventListener("scroll", function () {
   if (window.scrollY > 70) {
     // Show when scrolling down
     videoControls.style.opacity = 1;
-    if (subtitleDisplay.style.display === "block") {
+
+    // Only show subtitle if it's been activated by the button
+    if (subtitlesActive) {
+      // Check if the subtitle has been activated
       subtitleDisplay.style.opacity = 1;
     }
   } else {
-    // Hide when scrolling up
+    // Hide when scrolling up (or near the top)
     videoControls.style.opacity = 0;
+
+    // Hide the subtitle regardless of whether it's active or not
     subtitleDisplay.style.opacity = 0;
   }
 });
