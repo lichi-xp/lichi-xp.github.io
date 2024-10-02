@@ -480,6 +480,7 @@ nav ul li {
   font-family: "Instrument Serif", system-ui;
   font-size: 400px;
   -webkit-text-stroke: 1px black;
+  margin-bottom: -350px;
 }
 
 .social-buttons {
@@ -508,47 +509,56 @@ nav ul li {
 }
 
 /* Manually position each button */
+/* weverse */
 .social-button:nth-child(1) {
-  top: -200px;
+  top: 70px;
   left: 150px;
 }
 
+/* yt */
 .social-button:nth-child(2) {
-  top: -400px;
+  top: 50px;
   right: 250px;
 }
 
+/* tiktok */
 .social-button:nth-child(3) {
-  top: -300px;
+  top: 0px;
   left: -10px;
 }
 
+/* weibo */
 .social-button:nth-child(4) {
-  top: -250px;
+  top: 80px;
   right: 10px;
 }
 
+/* bili */
 .social-button:nth-child(5) {
-  top: -340px;
+  top: 200px;
   left: 300px;
 }
 
+/* twitter */
 .social-button:nth-child(6) {
-  top: -170px;
+  top: 200px;
   right: 150px;
 }
 
+/* Fb */
 .social-button:nth-child(7) {
-  top: -166px;
-  left: 200px;
+  top: 150px;
+  right: 400px;
 }
 
+/* Ig */
 .social-button:nth-child(8) {
-  top: 0px;
-  right: 300px;
+  top: -50px;
+  left: 400px;
 }
 
+/* website */
 .social-button:nth-child(9) {
-  top: 0px;
+  top: 100px;
   left: 400px;
 }
