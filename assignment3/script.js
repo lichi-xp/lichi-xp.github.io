@@ -3,60 +3,34 @@
 // Tarot card meanings were imported from a spreadsheet linked in this Reddit post:
 // https://www.reddit.com/r/tarot/comments/n8u6rs/link_to_tarot_meaning_spreadsheet_as_requested/
 
-let table;
-let img, back;
-let deck = [];
-let selected;
-let scaler;
-let lx = 0;
-let lv = 0;
-let flipper = 0;
-let shuffled = false;
-let copacity = 0;
+let table; // Stores tarot meanings table
+let img, back; // Back images of cards
+let deck = []; // Array of card objects
+let selected; // Currently selected card
+let scaler; // Scale factor for resizing
+let lx = 0; // Light position
+let lv = 0; // Light brightness
+let flipper = 0; // Flip rotation state
+let shuffled = false; // Shuffle state
+let copacity = 0; // Opacity controls for text
 let tcopacity = 1;
-let newval;
-let counter = 0;
-let stacked = false;
+let newval; // New value for card text
+let counter = 0; // Counter for text reveal animation
+let stacked = false; // Stacking state
 
 function preload() {
-  table = loadTable("media/meanings3.csv", "csv", "header");
-  img = loadImage("media/tarotdeck2.jpg");
-  back = loadImage("media/tarotback.jpg");
-}
-
-let defaultmessage =
-  "<u>Click any card to see its meaning!</u> <br> <br>" +
-  "Press SPACE to hide or show card info <br>" +
-  "Press S to shuffle or sort deck <br>" +
-  "Press F to flip all cards over <br>" +
-  "Press ENTER to stack or unstack deck <br>";
-
-function makeHTML() {
-  cardinfo = createP(defaultmessage);
-  cardinfo.position(width / 2 - (scaler * img.width) / 2, height / 2);
-  cardinfo.style("width", scaler * img.width + "px");
-
-  //Instruction text
-  cardinfo.style("font-family", "monospace"); // Monospace font
-  cardinfo.style("color", "rgba(255,255,255,0.8)"); // White text
-  cardinfo.style("text-align", "center"); // Center-align text
-  cardinfo.style("fontSize", height / 40 + "px"); // Responsive font size
-
-  //Instruction box
-  cardinfo.style("background-color", "rgba(2,42,59,0.6)"); // Dark blue background
-  cardinfo.style("borderRadius", height / 60 + "px"); // Rounded corners
-  cardinfo.style("border-color", "white"); // White border
-  cardinfo.style("border-style", "dotted"); // Dotted border
-  cardinfo.style("border-width", height / 200 + "px"); // Responsive border width
-  cardinfo.style("padding", height / 60 + "px"); // Responsive padding
-  cardinfo.style("opacity", 0); // Initially hidden
+  table = loadTable("media/meanings3.csv", "csv", "header"); // Load tarot meanings CSV
+  img = loadImage("media/tarotdeck2.jpg"); // Load tarot deck image
+  back = loadImage("media/tarotback.jpg"); // Load card back image
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  scaler = (0.95 * height) / img.height;
-  makeDeck();
-  makeHTML();
+  //   WEBGL - Enables 3D rendering and transformations on the canvas.
+  //   This enables working with 3D shapes, lighting, and camera functions like `translate`, `rotate`, and `pointLight` for 3D effects.
+  scaler = (0.95 * height) / img.height; // Calculate scaling factor
+  makeDeck(); // Create the deck of cards
+  instruction(); // Display instructions
 }
 
 function makeDeck() {
@@ -73,6 +47,34 @@ function makeDeck() {
       id++;
     }
   }
+}
+
+let defaultmessage =
+  "<u>Click any card to see its meaning!</u> <br> <br>" +
+  "Press SPACE to hide or show card info <br>" +
+  "Press S to shuffle or sort deck <br>" +
+  "Press F to flip all cards over <br>" +
+  "Press ENTER to stack or unstack deck <br>";
+
+function instruction() {
+  cardinfo = createP(defaultmessage); // Create paragraph with instructions
+  cardinfo.position(width / 2 - (scaler * img.width) / 2, height / 2); // Position instructions on screen
+  cardinfo.style("width", scaler * img.width + "px"); // Set width based on card scale
+
+  // Instruction text
+  cardinfo.style("font-family", "monospace"); // Monospace font
+  cardinfo.style("color", "rgba(255,255,255,0.8)"); // White text
+  cardinfo.style("text-align", "center"); // Center-align text
+  cardinfo.style("fontSize", height / 40 + "px"); // Responsive font size
+
+  // Instruction box
+  cardinfo.style("background-color", "rgba(2,42,59,0.6)"); // Dark blue background
+  cardinfo.style("borderRadius", height / 60 + "px"); // Rounded corners
+  cardinfo.style("border-color", "white"); // White border
+  cardinfo.style("border-style", "dotted"); // Dotted border
+  cardinfo.style("border-width", height / 200 + "px"); // Responsive border width
+  cardinfo.style("padding", height / 60 + "px"); // Responsive padding
+  cardinfo.style("opacity", 0); // Initially hidden
 }
 
 function draw() {
