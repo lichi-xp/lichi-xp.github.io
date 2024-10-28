@@ -1,8 +1,3 @@
-// Rider Waite Smith Tarot card images are in the public domain.
-// https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot
-// Tarot card meanings were imported from a spreadsheet linked in this Reddit post:
-// https://www.reddit.com/r/tarot/comments/n8u6rs/link_to_tarot_meaning_spreadsheet_as_requested/
-
 let table; // Stores tarot meanings table
 let img, back; // Back images of cards
 let deck = []; // Array of card objects
@@ -64,24 +59,25 @@ function instruction() {
   cardinfo.style("width", scaler * img.width + "px"); // Set width based on card scale
 
   // Instruction text
-  cardinfo.style("font-family", "Georgia", "18px"); // Monospace font
-  cardinfo.style("color", "rgb(111, 29, 27)"); // White text
+  cardinfo.style("font-family", "Georgia", "18px"); // Georgia font
+  cardinfo.style("color", "rgb(111, 29, 27)"); // Red text
   cardinfo.style("text-align", "center"); // Center-align text
   cardinfo.style("fontSize", height / 40 + "px"); // Responsive font size
 
   // Instruction box
   cardinfo.style("background-color", "rgba(255, 230, 167,0.8)"); // Dark blue background
   cardinfo.style("borderRadius", height / 60 + "px"); // Rounded corners
-  cardinfo.style("border-color", "rgb(67, 40, 24)"); // White border
-  cardinfo.style("border-style", "dashed"); // Dotted border
-  cardinfo.style("border-width", "3px"); // Responsive border width
+  cardinfo.style("border-color", "rgb(67, 40, 24)"); // Dark brown border
+  cardinfo.style("border-style", "dashed"); // Dashed border
+  cardinfo.style("border-width", "3px"); // Border width
   cardinfo.style("padding", height / 60 + "px"); // Responsive padding
   cardinfo.style("opacity", 0); // Initially hidden
 }
 
 function draw() {
+  // Adjust lighting over time
   lv = min(100, frameCount / 2);
-  lv = 100; // Adjust lighting over time
+  lv = 100;
 
   background("#540b0e"); // Set background color
 
@@ -156,7 +152,7 @@ function mouseClicked() {
           "</strong></span><br><br>";
       }
 
-      // Set card description with "Garamond" font
+      // Set card description with "Georgia" font
       newval += "<span style='font-family: Georgia, serif; font-size: 18px;'>";
       for (let i = 0; i < 9; i++) {
         let item = table.getString(selected.id, 4).split("|")[i];
