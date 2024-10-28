@@ -7,6 +7,7 @@ let lx = 0; // Light position
 let lv = 0; // Light brightness
 let flipper = 0; // Flip rotation state
 let shuffled = false; // Shuffle state
+let flipSound;
 
 // Opacity controls for text
 let copacity = 0; // Content opacity
