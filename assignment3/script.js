@@ -52,11 +52,11 @@ function makeDeck() {
 }
 
 let defaultmessage =
-  "<u>Click any card to see its meaning!</u> <br> <br>" +
-  "Press SPACE to hide or show card info <br>" +
-  "Press S to shuffle or sort deck <br>" +
-  "Press F to flip all cards over <br>" +
-  "Press ENTER to stack or unstack deck <br>";
+  "<span style='font-family: Patriot, sans-serif; font-size: 24px;'><strong>--CLICK ANY CARD TO SEE ITS MEANING--</strong></span><br> <br>" +
+  "Press <strong>SPACE</strong> to hide or show card information <br>" +
+  "Press <strong>S</strong> to shuffle or sort deck <br>" +
+  "Press <strong>F</strong> to flip all cards over <br>" +
+  "Press <strong>ENTER</strong> to stack or unstack deck <br>";
 
 function instruction() {
   cardinfo = createP(defaultmessage); // Create paragraph with instructions
@@ -64,17 +64,17 @@ function instruction() {
   cardinfo.style("width", scaler * img.width + "px"); // Set width based on card scale
 
   // Instruction text
-  cardinfo.style("font-family", "monospace"); // Monospace font
-  cardinfo.style("color", "rgba(255,255,255,0.8)"); // White text
+  cardinfo.style("font-family", "Georgia", "18px"); // Monospace font
+  cardinfo.style("color", "rgb(111, 29, 27)"); // White text
   cardinfo.style("text-align", "center"); // Center-align text
   cardinfo.style("fontSize", height / 40 + "px"); // Responsive font size
 
   // Instruction box
-  cardinfo.style("background-color", "rgba(2,42,59,0.6)"); // Dark blue background
+  cardinfo.style("background-color", "rgba(255, 230, 167,0.8)"); // Dark blue background
   cardinfo.style("borderRadius", height / 60 + "px"); // Rounded corners
-  cardinfo.style("border-color", "white"); // White border
-  cardinfo.style("border-style", "dotted"); // Dotted border
-  cardinfo.style("border-width", height / 200 + "px"); // Responsive border width
+  cardinfo.style("border-color", "rgb(67, 40, 24)"); // White border
+  cardinfo.style("border-style", "dashed"); // Dotted border
+  cardinfo.style("border-width", "3px"); // Responsive border width
   cardinfo.style("padding", height / 60 + "px"); // Responsive padding
   cardinfo.style("opacity", 0); // Initially hidden
 }
@@ -82,7 +82,9 @@ function instruction() {
 function draw() {
   lv = min(100, frameCount / 2);
   lv = 100; // Adjust lighting over time
-  background(0, 0.1 * lv, 0.3 * lv); // Set background color
+
+  background("#540b0e"); // Set background color
+
   ambientLight(lv); // Ambient lighting
   lx = lerp(lx, map(mouseX, 0, width, -height, height), 0.1); // Smooth light position
   pointLight(2 * lv, 2 * lv, 2 * lv, lx, -height, 3 * height); // Dynamic lighting
@@ -134,34 +136,38 @@ function mouseClicked() {
       )
     ) {
       selected = card; // Select the clicked card
-      // Major Arcana handling
-      if (card.id < 22)
+
+      // Set card name with "Patriot" font
+      if (card.id < 22) {
         newval =
-          "<u>" +
+          "<span style='font-family: Patriot, sans-serif; font-size: 24px;'>" +
+          "<strong>" +
           table.getString(selected.id, 0) +
           "<br>" +
           table.getString(selected.id, 3) +
-          "</u><br><br>";
-      // Minor Arcana handling
-      else
+          "</strong></span><br><br>";
+      } else {
         newval =
-          "<u>" +
+          "<span style='font-family: Patriot, sans-serif; font-size: 24px;'>" +
+          "<strong>" +
           table.getString(selected.id, 3) +
           " of " +
           table.getString(selected.id, 0) +
-          "</u><br><br>";
+          "</strong></span><br><br>";
+      }
 
-      // Add card details
+      // Set card description with "Garamond" font
+      newval += "<span style='font-family: Georgia, serif; font-size: 18px;'>";
       for (let i = 0; i < 9; i++) {
         let item = table.getString(selected.id, 4).split("|")[i];
-        if (
-          item &&
-          item[item.length - 1] != "?" &&
-          item[item.length - 1] != "."
-        )
-          newval += item + ".<br>";
-        else if (item) newval += item + "<br>";
+        if (item) {
+          newval +=
+            item[item.length - 1] != "?" && item[item.length - 1] != "."
+              ? item + ".<br>"
+              : item + "<br>";
+        }
       }
+      newval += "</span>"; // Close Garamond font span
     }
   }
   if (selected == null) newval = defaultmessage; // Reset text if no card selected
@@ -201,6 +207,7 @@ function shuffleCards() {
     // Fisher-Yates shuffle algorithm, used for randomly shuffling an array
     // var i = deck.length - 1: Start with the last element in deck.
     // i >= 0; i--: Move backward through the array until reaching the start.
+
     var j = Math.floor(Math.random() * (i + 1));
     [deck[i].tpos.x, deck[j].tpos.x] = [deck[j].tpos.x, deck[i].tpos.x];
     [deck[i].tpos.y, deck[j].tpos.y] = [deck[j].tpos.y, deck[i].tpos.y];
