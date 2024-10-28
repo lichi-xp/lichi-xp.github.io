@@ -7,8 +7,10 @@ let lx = 0; // Light position
 let lv = 0; // Light brightness
 let flipper = 0; // Flip rotation state
 let shuffled = false; // Shuffle state
-let copacity = 0; // Opacity controls for text
-let tcopacity = 1;
+
+// Opacity controls for text
+let copacity = 0; // Content opacity
+let tcopacity = 1; // Target content opacity
 let newval; // New value for card text
 let counter = 0; // Counter for text reveal animation
 let stacked = false; // Stacking state
@@ -106,6 +108,9 @@ function draw() {
   // Rotate selected card
   if (selected)
     selected.ang = lerp(selected.ang, 2 * TAU + sin(frameCount / 10) / 8, 0.1);
+  // TAU is a mathematical constant in p5.js that represents a full circle in radians. It is equal to 2×𝜋
+  // 2×π (approximately 6.28318). Using TAU makes it easier to work with full-circle rotations or cycles, as it represents 360 degrees in radians.
+  // 2 * TAU means two full rotations (720 degrees).
 
   // Fade-in text
   if (frameCount > 120) copacity = lerp(copacity, tcopacity, 0.1);
@@ -116,7 +121,7 @@ function draw() {
   else if (newval && tcopacity == 1) {
     counter += 1;
     counter = constrain(counter, 0, newval.length - 1); // Type-out effect
-    cardinfo.html(newval.substring(0, counter)); // Display partial text
+    cardinfo.html(newval.substring(0, counter)); // Displays progressively more of newval for a typewriter effect.
   }
 }
 
